@@ -48,6 +48,8 @@ Route::prefix('admin')->name('admin.')->middleware('auth' , 'cheack_user')->grou
     Route::delete('blogs/{id}/forcedelete', [BlogController::class, 'forcedelete'])->name('blogs.forcedelete');
     Route::resource('blogs', BlogController::class);
 
+    return "fffff";
+
 });
 
 
