@@ -2,14 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Queue\Worker;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class service extends Model
+
+class feature extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory , SoftDeletes;
+
     protected $guarded = [];
 
     public function work()
@@ -17,4 +18,5 @@ class service extends Model
         return $this->belongsTo(Work::class)->withDefault() ;
     }
 
+    
 }

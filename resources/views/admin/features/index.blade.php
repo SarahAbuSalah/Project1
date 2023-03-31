@@ -1,11 +1,11 @@
 
 @extends('admin.master')
 
-@section('title', 'services | ' . env('APP_NAME'))
+@section('title', 'features | ' . env('APP_NAME'))
 
 @section('content')
 
-    <h1>All Offers</h1>
+    <h1>All features</h1>
     @if (session('msg'))
         <div class="alert alert-{{ session('type') }}">
             {{ session('msg') }}
@@ -19,20 +19,22 @@
                 <th>Icon</th>
                 <th>Title</th>
                 <th>Content</th>
+                <th>Work_id</th>
                 <th>Action</th>
             </tr>
         </thead>
 
         <tbody>
             <tr>
-                @foreach ($services as $service)
-                <td>{{ $service->id}}</td>
-                <td>{{ $service->icon}}</td>
-                <td>{{ $service->title}}</td>
-                <td>{{ $service->content}}</td>
+                @foreach ($features as $feature)
+                <td>{{ $feature->id}}</td>
+                <td><img width="80" src="{{ asset('uploads/features/'.$feature->icon) }}" alt=""></td>
+                <td>{{ $feature->title}}</td>
+                <td>{{ $feature->content}}</td>
+                <td>{{ $feature->work_id }}</td>
                 <td>
-                        <a class="btn btn-primary" href="{{ route('admin.service.edit', $services->id) }}"><i class="fas fa-edit"></i></a>
-                        <form class="d-inline" action="{{ route('admin.service.destroy', $services->id) }}" method="POST">
+                        <a class="btn btn-primary" href="{{ route('admin.features.edit', $feature->id) }}"><i class="fas fa-edit"></i></a>
+                        <form class="d-inline" action="{{ route('admin.features.destroy', $feature->id) }}" method="POST">
                             @csrf
                             @method('delete')
                         <button class="btn btn-danger" onclick="return confirm('Are you sure')"><i class="fas fa-trash"></i></button>

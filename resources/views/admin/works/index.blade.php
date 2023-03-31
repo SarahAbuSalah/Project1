@@ -24,19 +24,19 @@
         </thead>
         <tbody>
             <tr>
-                @foreach ($work as $works)
-                <td>{{ $works->id}}</td>
-                <td><img width="80" src="{{ asset('uploads/works/'.$works->image) }}" alt=""></td>
-                <td>{{ $works->title}}</td>
-                <td>{{ $works->content}}</td>
+                @foreach ($works as $work)
+                <td>{{ $work->id}}</td>
+                <td><img width="80" src="{{ asset('uploads/works/'.$work->image) }}" alt=""></td>
+                <td>{{ $work->title}}</td>
+                <td>{{ $work->content}}</td>
                 <td>
-                        <a class="btn btn-primary" href="{{ route('admin.works.edit', $works->id) }}"><i class="fas fa-edit"></i></a>
-                        <form class="d-inline" action="{{ route('admin.works.destroy', $works->id) }}" method="POST">
+                        <a class="btn btn-primary" href="{{ route('admin.works.edit', $work->id) }}"><i class="fas fa-edit"></i></a>
+                        <form class="d-inline" action="{{ route('admin.works.destroy', $work->id) }}" method="POST">
                             @csrf
                             @method('delete')
                         <button class="btn btn-danger" onclick="return confirm('Are you sure')"><i class="fas fa-trash"></i></button>
                         </form>
-                    </td>
+                </td>
                 </tr>
             @endforeach
         </tbody>

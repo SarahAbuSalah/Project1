@@ -68,8 +68,9 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="">ALL Work </a>
-                        <a class="collapse-item" href="cards.html">Add New</a>
+                        <a class="collapse-item" href=" {{ route('admin.works.index') }} ">ALL Work </a>
+                        <a class="collapse-item" href="{{ route('admin.works.create') }}">Add New</a>
+                        <a class="collapse-item" href="{{ route('admin.works.trash') }}">Trashed</a>
                     </div>
                 </div>
             </li>
@@ -84,8 +85,9 @@
                 <div id="collapseTeams" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">ALL Teams </a>
-                        <a class="collapse-item" href="cards.html">Add New</a>
+                        <a class="collapse-item" href="{{ route('admin.teams.index') }}">ALL Teams </a>
+                        <a class="collapse-item" href="{{ route('admin.teams.create') }}">Add New</a>
+                        <a class="collapse-item" href="{{ route('admin.teams.trash') }}">Trashed</a>
                     </div>
                 </div>
             </li>
@@ -100,8 +102,9 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">ALL Offer </a>
-                        <a class="collapse-item" href="cards.html">Add New</a>
+                        <a class="collapse-item" href="{{ route('admin.offers.index') }}">ALL Offer </a>
+                        <a class="collapse-item" href="{{ route('admin.offers.create') }}">Add New</a>
+                        <a class="collapse-item" href="{{ route('admin.offers.trash') }}">Trashed</a>
                     </div>
                 </div>
             </li>
@@ -109,16 +112,17 @@
 
              <!-- Nav Item - Utilities Collapse Menu -->
              <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseservice"
-                    aria-expanded="true" aria-controls="collapseservice">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsefeature"
+                    aria-expanded="true" aria-controls="collapsefeature">
                     <i class="fas fa-fw fa-heart"></i>
-                    <span>Service</span>
+                    <span>Feature</span>
                 </a>
-                <div id="collapseservice" class="collapse" aria-labelledby="headingUtilities"
+                <div id="collapsefeature" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">ALL service </a>
-                        <a class="collapse-item" href="cards.html">Add New</a>
+                        <a class="collapse-item" href="{{ route('admin.features.index') }}">ALL Feature </a>
+                        <a class="collapse-item" href="{{ route('admin.features.create') }}">Add New</a>
+                        <a class="collapse-item" href="{{ route('admin.features.trash') }}">Trashed</a>
                     </div>
                 </div>
             </li>
@@ -133,8 +137,9 @@
                 <div id="collapseblog" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">ALL service </a>
-                        <a class="collapse-item" href="cards.html">Add New</a>
+                        <a class="collapse-item" href="{{ route('admin.blogs.index') }}">ALL blogs </a>
+                        <a class="collapse-item" href="{{ route('admin.blogs.create') }}">Add New</a>
+                        <a class="collapse-item" href="{{ route('admin.blogs.trash') }}">Trashed</a>
                     </div>
                 </div>
             </li>

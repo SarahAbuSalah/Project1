@@ -14,10 +14,10 @@ class CheackusertYpe
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next)
     {
-        if(Auth::user()->type == 'user'){
-            return redirect('/');
+        if(Auth::user()->type == 'user') {
+            return redirect('not_allowed');
         }
         return $next($request);
     }

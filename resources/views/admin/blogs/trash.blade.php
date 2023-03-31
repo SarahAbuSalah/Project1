@@ -4,11 +4,11 @@
     $name = 'name_'.app()->currentLocale();
 @endphp
 
-@section('title', 'Trashed blogs | ' . env('APP_NAME'))
+@section('title', 'Trashed Blogs | ' . env('APP_NAME'))
 
 @section('content')
 
-    <h1>All Trashed blogs</h1>
+    <h1>All Trashed Blogs</h1>
     @if (session('msg'))
         <div class="alert alert-{{ session('type') }}">
             {{ session('msg') }}
@@ -32,7 +32,7 @@
             <tr>
                 @foreach ($blogs as $blog)
                     <td>{{ $blog->id }}</td>
-                    <td>{{ $blog->image }}</td>
+                    <td><img width="80" src="{{ asset('uploads/blogs/'.$feature->image) }}" alt=""> </td>                    <td>{{ $feature->title }}</td>
                     <td>{{ $blog->title }}</td>
                     <td>{{ $blog->content }}</td>
                     <td>{{ $blog->date }}</td>

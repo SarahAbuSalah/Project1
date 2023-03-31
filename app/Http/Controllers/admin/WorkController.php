@@ -9,14 +9,12 @@ use Illuminate\Support\Facades\File;
 
 class WorkController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        $work = work::orderByDesc('id')->paginate(10);
+        $works = work::orderByDesc('id')->paginate(10);
 
-        return view('admin.works.index', compact('work'));
+        return view('admin.works.index', compact('works'));
     }
 
     /**
@@ -24,9 +22,8 @@ class WorkController extends Controller
      */
     public function create()
     {
-        $work = work::all();
-        return view('admin.works.create');
-
+        $works = work::all();
+        return view('admin.works.create' , compact('works'));
     }
 
     /**
@@ -35,8 +32,8 @@ class WorkController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'image' => 'required',
-            'title' => 'required',
+            'image'   => 'required',
+            'title'   => 'required',
             'content' => 'required',
         ]);
         // Upload Images
@@ -44,16 +41,18 @@ class WorkController extends Controller
                 if($request->hasFile('image')) {
                     $image = $request->file('image');
                     $img_name = rand(). time().$image->getClientOriginalName();
-                    $image->move(public_path('uploads/work'), $img_name);
+                    $image->move(public_path('uploads/works'), $img_name);
                 }
                   // Store To Database
         work::create([
-            'title' => $request->title,
-            'image' => $img_name,
-            'content' => $request->content,
-        ]);
+            'image'   =>  $img_name,
+            'title'   =>  $request->title,
+            'content' =>  $request->content,
+            ]);
+
          // Redirect
          return redirect()->route('admin.works.index')->with('msg', 'work added successfully')->with('type', 'success');
+
     }
 
     /**
@@ -73,6 +72,7 @@ class WorkController extends Controller
         $works = work::all();
 
         return view('admin.works.edit', compact('work', 'works'));
+
     }
 
     /**
@@ -80,12 +80,13 @@ class WorkController extends Controller
      */
     public function update(Request $request, string $id)
     {
-         // Validate Data
-         $request->validate([
-            'title' => 'required',
-            'image' => 'required',
+        // Validate Data
+        $request->validate([
+            'image'   => 'nullable|image|mimes:png,jpg,jpeg,svg,gif',
+            'title'   => 'required',
             'content' => 'required',
-        ]);
+            ]);
+
         $work = work::findOrFail($id);
 
           // Upload Images
@@ -93,19 +94,19 @@ class WorkController extends Controller
           if($request->hasFile('image')) {
               $image = $request->file('image');
               $img_name = rand(). time().$image->getClientOriginalName();
-              $image->move(public_path('uploads/work'), $img_name);
+              $image->move(public_path('uploads/works'), $img_name);
           }
 
           // Store To Database
           $work->update([
-              'title' => $request->title,
-              'image' => $img_name,
-              'content' => $request->content,
-
-          ]);
+            'image'   =>  $img_name,
+            'title'   =>  $request->title,
+            'content' =>  $request->content,
+            ]);
 
           // Redirect
           return redirect()->route('admin.works.index')->with('msg', 'work updated successfully')->with('type', 'info');
+
     }
 
     /**
@@ -115,19 +116,20 @@ class WorkController extends Controller
     {
         $work = work::findOrFail($id);
 
-        File::delete(public_path('uploads/work/'.$work->image));
+        File::delete(public_path('uploads/works/'.$work->image));
 
 
         $work->delete();
 
         return redirect()->route('admin.works.index')->with('msg', 'work deleted successfully')->with('type', 'danger');
+
     }
 
     public function trash()
     {
-        $work = work::onlyTrashed()->orderByDesc('id')->paginate(10);
+        $works = work::onlyTrashed()->orderByDesc('id')->paginate(10);
 
-        return view('admin.works.trash', compact('work'));
+        return view('admin.works.trash', compact('works'));
     }
 
     public function restore($id)

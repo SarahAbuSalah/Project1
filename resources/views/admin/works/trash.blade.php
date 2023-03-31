@@ -29,9 +29,9 @@
             <tr>
                 @foreach ($works as $work)
                     <td>{{ $work->id }}</td>
-                    <td>{{ $work->image }}</td>
-                    <td>{{ $work->content }}</td>
+                    <td><img width="80" src="{{ asset('uploads/works/'.$feature->image) }}" alt=""> </td>                    <td>{{ $feature->title }}</td>
                     <td>{{ $work->title }}</td>
+                    <td>{{ $work->content }}</td>
                     <td>
                         <a class="btn btn-sm btn-primary" href="{{ route('admin.works.restore', $work->id) }}"><i class="fas fa-undo"></i></a>
                         <form class="d-inline" action="{{ route('admin.works.forcedelete', $work->id) }}" method="POST">

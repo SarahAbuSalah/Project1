@@ -25,7 +25,6 @@
                 <th>Action</th>
             </tr>
         </thead>
-
         <tbody>
             <tr>
                 @foreach ($blogs as $blog)

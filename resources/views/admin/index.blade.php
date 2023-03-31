@@ -5,6 +5,6 @@
 
 @section('content')
 
-<h1>  fhedjfh </h1>
+<h1>   </h1>
 
 @stop

@@ -5,7 +5,7 @@
 
 @section('content')
 
-    <h1>All Offers</h1>
+    <h1>All Teams</h1>
     @if (session('msg'))
         <div class="alert alert-{{ session('type') }}">
             {{ session('msg') }}
@@ -33,8 +33,8 @@
                 <td>{{ $team->job}}</td>
                 <td>{{ $team->content}}</td>
                 <td>
-                        <a class="btn btn-primary" href="{{ route('admin.team.edit', $teams->id) }}"><i class="fas fa-edit"></i></a>
-                        <form class="d-inline" action="{{ route('admin.team.destroy', $teams->id) }}" method="POST">
+                        <a class="btn btn-primary" href="{{ route('admin.teams.edit', $team->id) }}"><i class="fas fa-edit"></i></a>
+                        <form class="d-inline" action="{{ route('admin.teams.destroy', $team->id) }}" method="POST">
                             @csrf
                             @method('delete')
                         <button class="btn btn-danger" onclick="return confirm('Are you sure')"><i class="fas fa-trash"></i></button>

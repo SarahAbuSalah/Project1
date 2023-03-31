@@ -35,9 +35,9 @@ class OfferController extends Controller
     {
         $request->validate([
             'content' => 'required',
-            'image' => 'required',
-            'title' => 'required',
-        ]);
+            'image'   => 'required',
+            'title'   => 'required',
+            ]);
         // Upload Images
                 $img_name = null;
                 if($request->hasFile('image')) {
@@ -50,7 +50,7 @@ class OfferController extends Controller
             'content' =>  $request->content,
             'image'   =>  $img_name,
             'title'   =>  $request->title,
-        ]);
+            ]);
 
          // Redirect
          return redirect()->route('admin.offers.index')->with('msg', 'offer added successfully')->with('type', 'success');
@@ -85,8 +85,8 @@ class OfferController extends Controller
         // Validate Data
         $request->validate([
             'content' => 'required',
-            'image' => 'required',
-            'title' => 'required',
+            'image'   => 'nullable|image|mimes:png,jpg,jpeg,svg,gif',
+            'title'   => 'required',
         ]);
 
         $offer = offer::findOrFail($id);
@@ -101,10 +101,9 @@ class OfferController extends Controller
 
           // Store To Database
           $offer->update([
-            'content' => $request->content,
-            'image' => $img_name,
-            'title' => $request->title,
-
+            'content' =>  $request->content,
+            'image'   =>  $img_name,
+            'title'   =>  $request->title,
           ]);
 
           // Redirect

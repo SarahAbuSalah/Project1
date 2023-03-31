@@ -30,7 +30,7 @@
             <tr>
                 @foreach ($teams as $team)
                     <td>{{ $team->id }}</td>
-                    <td>{{ $team->image }}</td>
+                    <td><img width="80" src="{{ asset('uploads/teams/'.$feature->image) }}" alt=""> </td>                    <td>{{ $feature->title }}</td>
                     <td>{{ $team->name }}</td>
                     <td>{{ $team->job }}</td>
                     <td>{{ $team->content }}</td>

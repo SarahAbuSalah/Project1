@@ -9,13 +9,14 @@
 @section('content')
 
     <h1>Edit Offer</h1>
+    @include('admin.errors')
 
     <form action="{{ route('admin.offers.update', $offer->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('put')
 
         <div class="mb-3">
-            <label>content</label>
+            <label>Content</label>
             <input type="text" name="content" placeholder="content" class="form-control" value="{{ $offer->content }}">
         </div>
 
@@ -26,7 +27,7 @@
         </div>
 
         <div class="mb-3">
-            <label>title</label>
+            <label>Title</label>
             <input type="text" name="title" placeholder="title" class="form-control" value="{{ $offer->title }}">
         </div>
 

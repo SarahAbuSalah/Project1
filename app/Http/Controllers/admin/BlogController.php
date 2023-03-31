@@ -90,7 +90,7 @@ class BlogController extends Controller
     {
         // Validate Data
         $request->validate([
-            'image'   => 'required',
+            'image'   => 'nullable|image|mimes:png,jpg,jpeg,svg,gif',
             'title'   => 'required',
             'content' => 'required',
             'date'    => 'required',
@@ -151,12 +151,12 @@ class BlogController extends Controller
     {
         blog::onlyTrashed()->find($id)->restore();
 
-        return redirect()->route('admin.blogs.index')->with('msg', 'blog restored successfully')->with('type', 'warning');
+        return redirect()->route('admin.blogs.trash')->with('msg', 'blog restored successfully')->with('type', 'warning');
     }
 
     public function forcedelete($id)
     {
         blog::onlyTrashed()->find($id)->forcedelete();
-        return redirect()->route('admin.blogs.index')->with('msg', 'blog deleted permanintly successfully')->with('type', 'danger');
+        return redirect()->route('admin.blogs.trash')->with('msg', 'blog deleted permanintly successfully')->with('type', 'danger');
     }
 }

@@ -8,15 +8,16 @@
 
 @section('content')
 
-    <h1>Add new Work</h1>
+    <h1>Add new feature</h1>
+    @include('admin.errors')
 
-    <form action="{{ route('admin.services.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.features.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
 
         <div class="mb-3">
             <label>Icon</label>
-            <input type="text" name="icon" placeholder="icon" class="form-control">
+            <input type="file" name="icon"  class="form-control">
         </div>
 
         <div class="mb-3">
@@ -27,6 +28,11 @@
         <div class="mb-3">
             <label>Content</label>
             <input type="text" name="content" placeholder="content" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label>Work Id</label>
+            <input type="text" name="work_id" placeholder="work_id" class="form-control">
         </div>
 
 

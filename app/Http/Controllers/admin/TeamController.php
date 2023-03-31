@@ -35,10 +35,10 @@ class TeamController extends Controller
     {
         $request->validate([
             'image'   => 'required',
-            'name'    => 'required',
-            'job'     => 'required',
+            'name'   => 'required',
+            'job'    => 'required',
             'content' => 'required',
-        ]);
+            ]);
         // Upload Images
                 $img_name = null;
                 if($request->hasFile('image')) {
@@ -49,10 +49,10 @@ class TeamController extends Controller
                   // Store To Database
         team::create([
             'image'   =>  $img_name,
-            'name'    =>  $request->name,
-            'job'     =>  $request->job,
+            'name'   =>  $request->name,
+            'job'    =>  $request->job,
             'content' =>  $request->content,
-        ]);
+            ]);
 
          // Redirect
          return redirect()->route('admin.teams.index')->with('msg', 'team added successfully')->with('type', 'success');
@@ -86,9 +86,9 @@ class TeamController extends Controller
     {
         // Validate Data
         $request->validate([
-            'image'   => 'required',
-            'name'    => 'required',
-            'job'     => 'required',
+            'image'   => 'nullable|image|mimes:png,jpg,jpeg,svg,gif',
+            'name'   => 'required',
+            'job'    => 'required',
             'content' => 'required',
         ]);
 
@@ -105,10 +105,9 @@ class TeamController extends Controller
           // Store To Database
           $team->update([
             'image'   =>  $img_name,
-            'name'    =>  $request->name,
-            'job'     =>  $request->job,
+            'name'   =>  $request->name,
+            'job'    =>  $request->job,
             'content' =>  $request->content,
-
           ]);
 
           // Redirect

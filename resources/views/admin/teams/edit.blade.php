@@ -8,7 +8,8 @@
 
 @section('content')
 
-    <h1>Edit Offer</h1>
+    <h1>Edit Team</h1>
+    @include('admin.errors')
 
     <form action="{{ route('admin.teams.update', $team->id) }}" method="POST" enctype="multipart/form-data">
         @csrf

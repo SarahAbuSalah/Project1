@@ -4,11 +4,11 @@
     $name = 'name_'.app()->currentLocale();
 @endphp
 
-@section('title', 'Trashed offers | ' . env('APP_NAME'))
+@section('title', 'Trashed Offers | ' . env('APP_NAME'))
 
 @section('content')
 
-    <h1>All Trashed offers</h1>
+    <h1>All Trashed Offers</h1>
     @if (session('msg'))
         <div class="alert alert-{{ session('type') }}">
             {{ session('msg') }}
@@ -22,14 +22,15 @@
                 <th>Content</th>
                 <th>Image</th>
                 <th>Title</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 @foreach ($offers as $offer)
                     <td>{{ $offer->id }}</td>
-                    <td>{{ $offer->image }}</td>
                     <td>{{ $offer->content }}</td>
+                    <td><img width="80" src="{{ asset('uploads/offers/'.$feature->image) }}" alt=""> </td>                    <td>{{ $feature->title }}</td>
                     <td>{{ $offer->title }}</td>
                     <td>
                         <a class="btn btn-sm btn-primary" href="{{ route('admin.offers.restore', $offer->id) }}"><i class="fas fa-undo"></i></a>

@@ -8,7 +8,8 @@
 
 @section('content')
 
-    <h1>Add new Work</h1>
+    <h1>Add new Blog</h1>
+    @include('admin.errors')
 
     <form action="{{ route('admin.blogs.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -43,9 +44,8 @@
             <input type="text" name="viwer" placeholder="viwer" class="form-control">
         </div>
 
-
         <button class="btn btn-success px-5">Add</button>
 
-    </form>
+    </form>
 
 @stop
