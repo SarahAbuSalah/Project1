@@ -46,6 +46,11 @@
             <input type="text" name="viwer" placeholder="viwer" class="form-control" value="{{ $blog->viwer }}">
         </div>
 
+        <div class="mb-3">
+            <label>Category Id</label>
+            <input type="text" name="category_id" placeholder="category_id" class="form-control" value="{{ $blog->category_id }}">
+        </div>
+
         <button class="btn btn-success px-5">Update</button>
 
     </form>

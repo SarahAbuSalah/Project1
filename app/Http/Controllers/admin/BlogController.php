@@ -40,6 +40,7 @@ class BlogController extends Controller
             'date'    => 'required',
             'writer'  => 'required',
             'viwer'   => 'required',
+            'category_id' => ' numeric',
         ]);
         // Upload Images
                 $img_name = null;
@@ -56,6 +57,7 @@ class BlogController extends Controller
             'date'    =>  $request->date,
             'writer'  =>  $request->writer,
             'viwer'   =>  $request->viwer,
+            'category_id'   =>  $request->category_id,
         ]);
 
          // Redirect
@@ -96,6 +98,7 @@ class BlogController extends Controller
             'date'    => 'required',
             'writer'  => 'required',
             'viwer'   => 'required',
+            'category_id' => 'numeric',
         ]);
 
         $blog = blog::findOrFail($id);
@@ -116,6 +119,7 @@ class BlogController extends Controller
             'date'    =>  $request->date,
             'writer'  =>  $request->writer,
             'viwer'   =>  $request->viwer,
+            'category_id'   =>  $request->category_id,
 
           ]);
 

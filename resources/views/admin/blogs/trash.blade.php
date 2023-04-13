@@ -4,11 +4,11 @@
     $name = 'name_'.app()->currentLocale();
 @endphp
 
-@section('title', 'Trashed Blogs | ' . env('APP_NAME'))
+@section('title', 'Trashed Category | ' . env('APP_NAME'))
 
 @section('content')
 
-    <h1>All Trashed Blogs</h1>
+    <h1>All Trashed Category</h1>
     @if (session('msg'))
         <div class="alert alert-{{ session('type') }}">
             {{ session('msg') }}
@@ -25,6 +25,7 @@
                 <th>Date</th>
                 <th>Writer</th>
                 <th>Viwer</th>
+                <th>category_id</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -32,12 +33,13 @@
             <tr>
                 @foreach ($blogs as $blog)
                     <td>{{ $blog->id }}</td>
-                    <td><img width="80" src="{{ asset('uploads/blogs/'.$feature->image) }}" alt=""> </td>                    <td>{{ $feature->title }}</td>
+                    <td><img width="80" src="{{ asset('uploads/blogs/'.$blog->image) }}" alt=""> </td>
                     <td>{{ $blog->title }}</td>
                     <td>{{ $blog->content }}</td>
                     <td>{{ $blog->date }}</td>
                     <td>{{ $blog->writer }}</td>
                     <td>{{ $blog->viwer }}</td>
+                    <td>{{ $blog->category_id }}</td>
                     <td>
                         <a class="btn btn-sm btn-primary" href="{{ route('admin.blogs.restore', $blog->id) }}"><i class="fas fa-undo"></i></a>
                         <form class="d-inline" action="{{ route('admin.blogs.forcedelete', $blog->id) }}" method="POST">

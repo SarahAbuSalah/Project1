@@ -3,12 +3,16 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\webSiteController;
 use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\TeamController;
 use App\Http\Controllers\admin\WorkController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\OfferController;
+use App\Http\Controllers\admin\ClientController;
+use App\Http\Controllers\admin\ContactController;
 use App\Http\Controllers\admin\FeatureController;
+use App\Http\Controllers\admin\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +54,21 @@ Route::prefix('admin')->name('admin.')->middleware('auth' , 'cheack_user')->grou
     Route::delete('blogs/{id}/forcedelete', [BlogController::class, 'forcedelete'])->name('blogs.forcedelete');
     Route::resource('blogs', BlogController::class);
 
+    Route::get('contacts/trash', [ContactController::class, 'trash'])->name('contacts.trash');
+    Route::get('contacts/{id}/restore', [ContactController::class, 'restore'])->name('contacts.restore');
+    Route::delete('contacts/{id}/forcedelete', [ContactController::class, 'forcedelete'])->name('contacts.forcedelete');
+    Route::resource('contacts', ContactController::class);
+
+    Route::get('clients/trash', [ClientController::class, 'trash'])->name('clients.trash');
+    Route::get('clients/{id}/restore', [ClientController::class, 'restore'])->name('clients.restore');
+    Route::delete('clients/{id}/forcedelete', [ClientController::class, 'forcedelete'])->name('clients.forcedelete');
+    Route::resource('clients', ClientController::class);
+
+    Route::get('categories/trash', [CategoryController::class, 'trash'])->name('categories.trash');
+    Route::get('categories/{id}/restore', [CategoryController::class, 'restore'])->name('categories.restore');
+    Route::delete('categories/{id}/forcedelete', [CategoryController::class, 'forcedelete'])->name('categories.forcedelete');
+    Route::resource('categories', CategoryController::class);
+
 });
 
 Auth::routes();
@@ -58,3 +77,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::view('not_allowed', 'not_allowed');
 
+Route::get('/', [webSiteController::class , 'home'])->name('webSite.index');

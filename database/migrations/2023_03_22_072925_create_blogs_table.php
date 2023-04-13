@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('date');
             $table->string('writer');
             $table->string('viwer');
+            $table->foreignId('category_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

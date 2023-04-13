@@ -44,6 +44,11 @@
             <input type="text" name="viwer" placeholder="viwer" class="form-control">
         </div>
 
+        <div class="mb-3">
+            <label>Category Id</label>
+            <input type="text" name="category_id" placeholder="category_id" class="form-control">
+        </div>
+
         <button class="btn btn-success px-5">Add</button>
 
     </form>

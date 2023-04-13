@@ -22,6 +22,7 @@
                 <th>Date</th>
                 <th>Writer</th>
                 <th>Viwer</th>
+                <th>category_id</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -35,6 +36,7 @@
                 <td>{{ $blog->date}}</td>
                 <td>{{ $blog->writer}}</td>
                 <td>{{ $blog->viwer}}</td>
+                <td>{{ $blog->category_id}}</td>
                 <td>
                         <a class="btn btn-primary" href="{{ route('admin.blogs.edit', $blog->id) }}"><i class="fas fa-edit"></i></a>
                         <form class="d-inline" action="{{ route('admin.blogs.destroy', $blog->id) }}" method="POST">

@@ -34,7 +34,7 @@
         <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex lign-items-center justify-content-center" href="{{ route('webSite.index') }}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -46,7 +46,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ route('admin.index') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -143,6 +143,56 @@
                     </div>
                 </div>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseclient"
+                    aria-expanded="true" aria-controls="collapseclient">
+                    <i class="fas fa-fw fa-heart"></i>
+                    <span>Client</span>
+                </a>
+                <div id="collapseclient" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route('admin.clients.index') }}">ALL Clients </a>
+                        <a class="collapse-item" href="{{ route('admin.clients.create') }}">Add New</a>
+                        <a class="collapse-item" href="{{ route('admin.clients.trash') }}">Trashed</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsecategory"
+                    aria-expanded="true" aria-controls="collapsecategory">
+                    <i class="fas fa-fw fa-heart"></i>
+                    <span>Category</span>
+                </a>
+                <div id="collapsecategory" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route('admin.categories.index') }}">ALL Category </a>
+                        <a class="collapse-item" href="{{ route('admin.categories.create') }}">Add New</a>
+                        <a class="collapse-item" href="{{ route('admin.categories.trash') }}">Trashed</a>
+                    </div>
+                </div>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsecontact"
+                    aria-expanded="true" aria-controls="collapsecontact">
+                    <i class="fas fa-fw fa-heart"></i>
+                    <span>Contact</span>
+                </a>
+                <div id="collapsecontact" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route('admin.contacts.index') }}">ALL Contacts </a>
+                        <a class="collapse-item" href="{{ route('admin.contacts.create') }}">Add New</a>
+                        <a class="collapse-item" href="{{ route('admin.contacts.trash') }}">Trashed</a>
+                    </div>
+                </div>
+            </li>
+
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
