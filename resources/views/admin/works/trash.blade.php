@@ -29,7 +29,7 @@
             <tr>
                 @foreach ($works as $work)
                     <td>{{ $work->id }}</td>
-                    <td><img width="80" src="{{ asset('uploads/works/'.$feature->image) }}" alt=""> </td>                    <td>{{ $feature->title }}</td>
+                    <td><img height="150px" width="100%" src="{{ asset('uploads/works/'.$feature->image) }}" alt=""> </td>                    <td>{{ $feature->title }}</td>
                     <td>{{ $work->title }}</td>
                     <td>{{ $work->content }}</td>
                     <td>

@@ -34,7 +34,7 @@ Slider Section Start
             developer. This site showcases some of my work.
           </h2>
           <a class="btn-lines dark light wow fadeInUp animated btn btn-default btn-green hvr-bounce-to-right"
-            data-wow-delay=".9s" href="https://themefisher.com/" target="_blank">Download More</a>
+            data-wow-delay=".9s" href="{{ route('webSite.work') }}" target="_blank"> Viwe Work </a>
         </div>
       </div>
     </div>
@@ -91,10 +91,13 @@ Portfolio Section Start
       </p>
     </div>
     <div class="row">
+
+      @foreach ( $latest_work as $work )
+
       <div class="col-md-4 col-sm-6">
         <figure class="wow fadeInLeft animated portfolio-item" data-wow-duration="500ms" data-wow-delay="0ms">
-          <div class="img-wrapper">
-            <img src="{{ asset('webSite/images/portfolio/item-1.jpg') }}" class="img-fluid" alt="this is a title">
+          <div class="img-wrapper"  >
+            <img width="100%" src="{{ asset('uploads/works/'.$work->image) }}" class="img-fluid" alt="this is a title">
             <div class="overlay">
               <div class="buttons">
                 <a rel="gallery" class="fancybox" href="{{ asset('webSite/images/portfolio/item-1.jpg') }}">Demo</a>
@@ -105,130 +108,18 @@ Portfolio Section Start
           <figcaption>
             <h4>
               <a href="#">
-                Dew Drop
+                {{ $work->title }}
               </a>
             </h4>
             <p>
-              Redesigne UI Concept
+                {{ $work->content }}
             </p>
           </figcaption>
         </figure>
       </div>
-      <div class="col-md-4 col-sm-6">
-        <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="300ms">
-          <div class="img-wrapper">
-            <img src="{{ asset('webSite/images/portfolio/item-2.jpg') }}" class="img-fluid" alt="this is a title">
-            <div class="overlay">
-              <div class="buttons">
-                <a rel="gallery" class="fancybox" href="{{ asset('webSite/images/portfolio/item-2.jpg') }}">Demo</a>
-                <a target="_blank" href="single-portfolio.html">Details</a>
-              </div>
-            </div>
-          </div>
-          <figcaption>
-            <h4>
-              <a href="#">
-                Bottle Mockup
-              </a>
-            </h4>
-            <p>
-              Lorem ipsum dolor sit.
-            </p>
-          </figcaption>
-        </figure>
-      </div>
-      <div class="col-md-4 col-sm-6">
-        <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="300ms">
-          <div class="img-wrapper">
-            <img src="{{ asset('webSite/images/portfolio/item-3.jpg') }}" class="img-fluid" alt="">
-            <div class="overlay">
-              <div class="buttons">
-                <a rel="gallery" class="fancybox" href="{{ asset('webSite/images/portfolio/item-3.jpg') }}">Demo</a>
-                <a target="_blank" href="single-portfolio.html">Details</a>
-              </div>
-            </div>
-          </div>
-          <figcaption>
-            <h4>
-              <a href="#">
-                Table Design
-              </a>
-            </h4>
-            <p>
-              Lorem ipsum dolor sit amet.
-            </p>
-          </figcaption>
-        </figure>
-      </div>
-      <div class="col-md-4 col-sm-6">
-        <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="600ms">
-          <div class="img-wrapper">
-            <img src="{{ asset('webSite/images/portfolio/item-4.jpg') }}" class="img-fluid" alt="">
-            <div class="overlay">
-              <div class="buttons">
-                <a rel="gallery" class="fancybox" href="{{ asset('webSite/images/portfolio/item-4.jpg') }}">Demo</a>
-                <a target="_blank" href="single-portfolio.html">Details</a>
-              </div>
-            </div>
-          </div>
-          <figcaption>
-            <h4>
-              <a href="#">
-                Make Up elements
-              </a>
-            </h4>
-            <p>
-              Lorem ipsum dolor.
-            </p>
-          </figcaption>
-        </figure>
-      </div>
-      <div class="col-md-4 col-sm-6">
-        <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="900ms">
-          <div class="img-wrapper">
-            <img src="{{ asset('webSite/images/portfolio/item-5.jpg') }}" class="img-fluid" alt="">
-            <div class="overlay">
-              <div class="buttons">
-                <a rel="gallery" class="fancybox" href="{{ asset('webSite/images/portfolio/item-5.jpg') }}">Demo</a>
-                <a target="_blank" href="single-portfolio.html">Details</a>
-              </div>
-            </div>
-          </div>
-          <figcaption>
-            <h4>
-              <a href="#">
-                Shoping Bag Concept
-              </a>
-            </h4>
-            <p>
-              Lorem ipsum dolor.
-            </p>
-          </figcaption>
-        </figure>
-      </div>
-      <div class="col-md-4 col-sm-6">
-        <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="1200ms">
-          <div class="img-wrapper">
-            <img src="{{ asset('webSite/images/portfolio/item-6.jpg') }}" class="img-fluid" alt="">
-            <div class="overlay">
-              <div class="buttons">
-                <a rel="gallery" class="fancybox" href="{{ asset('webSite/images/portfolio/item-6.jpg') }}">Demo</a>
-                <a target="_blank" href="single-portfolio.html">Details</a>
-              </div>
-            </div>
-          </div>
-          <figcaption>
-            <h4>
-              <a href="#">
-                Caramel Bottle
-              </a>
-            </h4>
-            <p>
-              Lorem ipsum dolor.
-            </p>
-          </figcaption>
-        </figure>
-      </div>
+
+      @endforeach
+
     </div>
   </div>
 </section> <!-- #works -->
@@ -245,85 +136,24 @@ Portfolio Section Start
         commodi repellendus quod laborum.
       </p>
     </div>
+
     <div class="row">
-      <div class="col-sm-6 col-lg-4">
-        <div class="media wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="300ms">
-          <div class="media-left">
-            <div class="icon">
-              <i class="ion-ios-flask-outline"></i>
+        @foreach ( $latest_offer as $offer )
+        <div class="col-sm-6 col-lg-4">
+            <div class="media wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="300ms">
+              <div class="media-left">
+                <div class="icon">
+                  <i > <img src="{{ asset('uploads/offers/'.$offer->image) }}" class="img-fluid" alt="this is a title"> </i>
+                </div>
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading">{{ $offer->title }}</h4>
+                <p>{{ $offer->content }}</p>
+              </div>
             </div>
           </div>
-          <div class="media-body">
-            <h4 class="media-heading">Media heading</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, sint.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-4">
-        <div class="media wow fadeInDown animated" data-wow-duration="500ms" data-wow-delay="600ms">
-          <div class="media-left">
-            <div class="icon">
-              <i class="ion-ios-lightbulb-outline"></i>
-            </div>
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading">Well documented.</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, sint.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-4">
-        <div class="media wow fadeInDown animated" data-wow-duration="500ms" data-wow-delay="900ms">
-          <div class="media-left">
-            <div class="icon">
-              <i class="ion-ios-lightbulb-outline"></i>
-            </div>
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading">Well documented.</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, sint.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-4">
-        <div class="media wow fadeInDown animated" data-wow-duration="500ms" data-wow-delay="1200ms">
-          <div class="media-left">
-            <div class="icon">
-              <i class="ion-ios-americanfootball-outline"></i>
-            </div>
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading">Free updates</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, sint.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-4">
-        <div class="media wow fadeInDown animated" data-wow-duration="500ms" data-wow-delay="1500ms">
-          <div class="media-left">
-            <div class="icon">
-              <i class="ion-ios-keypad-outline"></i>
-            </div>
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading">Solid Support</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, sint.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-4">
-        <div class="media wow fadeInDown animated" data-wow-duration="500ms" data-wow-delay="1800ms">
-          <div class="media-left">
-            <div class="icon">
-              <i class="ion-ios-barcode-outline"></i>
-            </div>
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading">Simple Installation</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, sint.</p>
-          </div>
-        </div>
-      </div>
+        @endforeach
+
     </div>
   </div>
 </section> <!-- /#feature -->

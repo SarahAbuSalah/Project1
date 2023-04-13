@@ -78,3 +78,15 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::view('not_allowed', 'not_allowed');
 
 Route::get('/', [webSiteController::class , 'home'])->name('webSite.index');
+
+Route::get('/about', [webSiteController::class , 'about'])->name('webSite.about');
+
+Route::get('/service', [webSiteController::class , 'service'])->name('webSite.service');
+
+Route::get('/blog', [webSiteController::class , 'blog'])->name('webSite.blog');
+
+Route::get('/work', [webSiteController::class , 'work'])->name('webSite.work');
+
+Route::get('/offer', [webSiteController::class , 'offer'])->name('webSite.offer');
+
+
